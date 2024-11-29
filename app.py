@@ -23,7 +23,6 @@ app = Flask(__name__)
 
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
-print(account_sid, auth_token)
 client = Client(account_sid, auth_token)
 
 UPLOAD_FOLDER = 'uploads' 
