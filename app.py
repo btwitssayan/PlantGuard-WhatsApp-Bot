@@ -19,7 +19,7 @@ def detect(file):
 
 load_dotenv()
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
@@ -95,6 +95,3 @@ def chatbot():
 
     return str(bot_message)
 
-
-if _name_ == '_main_':
-    app.run(debug=True)
