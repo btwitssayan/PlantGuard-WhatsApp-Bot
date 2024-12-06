@@ -52,6 +52,7 @@ def save_image_from_url(media_url, from_number):
     except Exception as e:
         logging.error(f"Error downloading image: {e}")
         return None
+
 @app.route('/', methods=['GET', 'POST'])
 def chatbot():
     media_url = request.form.get('MediaUrl0')
@@ -87,10 +88,12 @@ def chatbot():
     
     elif user_message == 'n':
         bot_message.message('😊 Thanks for using the bot! Say "hi" anytime for help.')
+        session["state"] = "initial"
         session.clear()
 
     else:
         bot_message.message('🤔 I didn’t understand. Reply "hi" to start over.')
+        session["state"] = "initial"
 
     return str(bot_message)
 
